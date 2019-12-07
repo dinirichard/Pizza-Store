@@ -1,0 +1,46 @@
+<!--TODO Add validation error messages for form inputs-->
+<div [formGroup]="customerControl">
+    <div class="order-form mt-3">
+        <div class="form-input">
+            <label for="name">Name <span class="danger">*</span></label>
+            <input formControlName="name" class="form-control" placeholder="Enter name" name="name"
+                [ngClass]="{ 'is-invalid': submitted}">
+            <span [hidden]="customerControl.get('name').pristine" class="danger">
+                Name is <strong>required</strong>
+            </span>
+
+        </div>
+
+        <div class="form-input">
+            <label for="email">Email <span class="danger">*</span></label>
+            <input formControlName="email" class="form-control" placeholder="Enter email" name="email"
+                [ngClass]="{ 'is-invalid': submitted }">
+            <div [hidden]="customerControl.get('email').pristine" class="danger">Email is <strong>required</strong>
+            </div>
+            <div [hidden]="customerControl.get('email').hasError('email') && submitted" class="danger">Please enter a
+                valid email
+                address
+            </div>
+        </div>
+    </div>
+
+    <div class="order-form">
+        <div class="form-input">
+            <label for="address">Address <span class="danger">*</span></label>
+            <input formControlName="address" class="form-control" id="address" placeholder="Enter address"
+                name="address" [ngClass]="{ 'is-invalid': submitted }">
+            <div [hidden]="customerControl.get('address').pristine" class="danger">
+                Address is <strong>required</strong>
+            </div>
+        </div>
+
+        <div class="form-input">
+            <label for="phone">Phone <span class="danger">*</span></label>
+            <input formControlName="phone" class="form-control" id="phone" placeholder="Enter phone number" name="phone"
+                [ngClass]="{ 'is-invalid': submitted }">
+            <div [hidden]="customerControl.get('phone').pristine" class="danger">
+                Phone is <strong>required</strong>
+            </div>
+        </div>
+    </div>
+</div>

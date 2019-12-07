@@ -1,0 +1,154 @@
+.pizza-image__topping {
+    position: absolute;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+  
+  .pizza-image {
+    width: 330px;
+    height: 330px;
+    margin-top: 50px;
+  }
+  
+  .pizza-image__inactive {
+    display: none;
+  }
+  
+  .slide-in-top {
+    -webkit-animation: slide-in-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940);
+    animation: slide-in-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940);
+  }
+  
+  @-webkit-keyframes slide-in-top {
+    0% {
+      -webkit-transform: translateY(-1000px);
+      transform: translateY(-1000px);
+      opacity: 0;
+    }
+    100% {
+      -webkit-transform: translateY(0);
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  @keyframes slide-in-top {
+    0% {
+      -webkit-transform: translateY(-1000px);
+      transform: translateY(-1000px);
+      opacity: 0;
+    }
+    100% {
+      -webkit-transform: translateY(0);
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  .pizza-image__topping-tomato {
+    background-image: url(../../../../assets/toppings/tomato.png);
+    width: 51px;
+    height: 37px;
+  }
+  
+  .pizza-image__topping-tomato:nth-child(1) {
+    left: 140px;
+    top: 250px;
+  }
+  
+  .pizza-image__topping-tomato:nth-child(2) {
+    left: 80px;
+    top: 150px;
+  }
+  
+  .pizza-image__topping-tomato:nth-child(3) {
+    left: 200px;
+    top: 150px;
+  }
+  
+  .pizza-image__topping-tomato:nth-child(4), .pizza-image__topping-tomato:nth-child(5) {
+    display: none;
+  }
+  
+  .pizza-image__topping-pepperoni {
+    background-image: url(../../../../assets/toppings/pepperoni.png);
+    width: 56px;
+    height: 42px;
+  }
+  
+  .pizza-image__topping-pepperoni:nth-child(1) {
+    left: 165px;
+    top: 145px;
+  }
+  
+  .pizza-image__topping-pepperoni:nth-child(2) {
+    left: 126px;
+    top: 210px;
+  }
+  
+  .pizza-image__topping-pepperoni:nth-child(3) {
+    left: 210px;
+    top: 210px;
+  }
+  
+  .pizza-image__topping-pepperoni:nth-child(4) {
+    left: 200px;
+    top: 280px;
+  }
+  
+  .pizza-image__topping-pepperoni:nth-child(5) {
+    display: none;
+  }
+  
+  .pizza-image__topping-mushroom {
+    background-image: url(../../../../assets/toppings/mushroom.png);
+    width: 56px;
+    height: 42px;
+  }
+  
+  .pizza-image__topping-mushroom:nth-child(1) {
+    left: 150px;
+    top: 100px;
+  }
+  
+  .pizza-image__topping-mushroom:nth-child(2) {
+    left: 240px;
+    top: 240px;
+  }
+  
+  .pizza-image__topping-mushroom:nth-child(3) {
+    left: 82px;
+    top: 244px;
+  }
+  
+  .pizza-image__topping-mushroom:nth-child(4), .pizza-image__topping-mushroom:nth-child(5) {
+    display: none;
+  }
+
+  .pizza-image__topping-bacon {
+    background-image: url(../../../../assets/toppings/bacon.png);
+    width: 56px;
+    height: 42px;
+  }
+  
+  .pizza-image__topping-bacon:nth-child(1) {
+    left: 257px;
+    top: 170px;
+  }
+  
+  .pizza-image__topping-bacon:nth-child(2) {
+    left: 130px;
+    top: 285px;
+  }
+  
+  .pizza-image__topping-bacon:nth-child(3) {
+    left: 70px;
+    top: 200px;
+  }
+  
+  .pizza-image__topping-bacon:nth-child(4), .pizza-image__topping-bacon:nth-child(5) {
+    display: none;
+  }
+  
+  /*TODO Add CSS for pizza image bacon toppings*/
+  

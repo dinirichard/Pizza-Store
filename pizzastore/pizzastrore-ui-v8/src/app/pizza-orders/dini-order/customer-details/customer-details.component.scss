@@ -1,0 +1,40 @@
+.order-form {
+    display: flex;
+  }
+  
+  .danger {
+    color: red;
+  }
+  
+  .form-input {
+    margin: 0 30px 20px 0;
+    flex-grow: 1;
+  }
+  
+  .example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+  
+  .example-full-width {
+    width: 100%;
+  }
+  
+  td {
+    padding-right: 8px;
+  }
+  
+  mat-form-field.mat-form-field-infix {
+      padding-top: 10px;
+      padding-bottom: 17px;
+  }
+
+  .form-control.is-invalid, .was-validated .form-control:invalid {
+    border-color: #dc3545;
+    padding-right: calc(1.5em + .75rem);
+    background-image: none;
+    background-repeat: no-repeat;
+    background-position: center right calc(.375em + .1875rem);
+    background-size: calc(.75em + .375rem) calc(.75em + .375rem);
+  }

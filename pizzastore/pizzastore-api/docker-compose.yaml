@@ -1,0 +1,38 @@
+# TODO! PostgreSQL container setup
+
+version: '3.3'
+
+networks:
+  frontend:
+    driver: bridge
+  backend:
+    driver: bridge
+
+volumes:
+  postgres:
+    driver: local
+
+services:
+  database:
+    build:
+      context: ./database
+      image: atsea_db
+      environment:
+        POSTGRES_USER: pizzastore
+        POSTGRES_DB: pizzastore
+        POSTGRES_PASSWORD: pizzastore
+      ports:
+        - "4444:4444"
+      networks:
+        - backend
+  api-server:
+    build:
+      context: .gradle
+      dockerfile:
+      image: pizzastore-api
+      ports:
+        - "8080:8080"
+
+
+
+

@@ -1,0 +1,10 @@
+task zip(dependsOn: getTasksByName('clean', true), type: Zip) {
+
+    destinationDir project.buildDir
+    archiveName 'summeruni2019_submission.zip'
+    from projectDir
+    include subprojects.collect { it.name + '/**/*' }
+
+    exclude '**/TestResults','**/node_modules','**/build', '**/.gradle', '**/.git', '**/*.zip', '**/*.iml', '**/.idea', '**/.metadata' //Exclude common stuff
+    print "You can find the zip to submit at: "+project.buildDir+"/summeruni2019_submission.zip"
+}

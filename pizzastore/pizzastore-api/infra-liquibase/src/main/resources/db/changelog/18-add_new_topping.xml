@@ -1,0 +1,16 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd"
+                   logicalFilePath="18-add_new_topping.xml">
+
+  <!-- TODO! Add new topping... DONE-->
+  <changeSet author="dinirichard@hotmail.com" id="add_bacon_topping">
+    <insert tableName="product">
+      <column name="name" value="Bacon"/>
+      <column name="category_code" value="PIZZA_TOPPING"/>
+      <column name="price" value="1.30"/>
+    </insert>
+  </changeSet>
+
+</databaseChangeLog>

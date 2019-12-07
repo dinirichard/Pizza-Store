@@ -1,0 +1,18 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd"
+                   logicalFilePath="16-order_item.xml">
+
+  <changeSet id="order_item_table" author="indrek.maask@nortal.com">
+    <createTable tableName="order_item">
+      <column name="id" type="bigint" autoIncrement="true">
+        <constraints primaryKey="true"/>
+      </column>
+      <column name="order_id" type="bigint">
+        <constraints nullable="false" foreignKeyName="order_item_order_fkey" references="orders(id)"/>
+      </column>
+    </createTable>
+  </changeSet>
+
+</databaseChangeLog>

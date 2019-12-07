@@ -1,0 +1,25 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd"
+                   logicalFilePath="15-orders.xml">
+
+  <changeSet id="orders_table" author="indrek.maask@nortal.com">
+    <createTable tableName="orders">
+      <column name="id" type="bigint" autoIncrement="true">
+        <constraints primaryKey="true"/>
+      </column>
+      <column name="created" type="TIMESTAMP(6) WITHOUT TIME ZONE">
+        <constraints nullable="false"/>
+      </column>
+      <column name="customer_name" type="VARCHAR(255)"/>
+      <column name="customer_email" type="VARCHAR(255)"/>
+      <column name="customer_phone" type="VARCHAR(255)"/>
+      <column name="customer_address" type="VARCHAR(255)"/>
+      <column name="customer_id" type="bigint">
+        <constraints nullable="false" foreignKeyName="order_customer_fkey" references="users(id)"/>
+      </column>
+    </createTable>
+  </changeSet>
+
+</databaseChangeLog>

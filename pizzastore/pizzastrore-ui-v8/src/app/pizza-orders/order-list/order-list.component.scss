@@ -1,0 +1,68 @@
+.order-form {
+    display: flex;
+  }
+  
+  .form-input {
+    margin: 0 30px 20px 0;
+    flex-grow: 1;
+  }
+  
+  .submit {
+    float: right;
+  }
+  
+  .order-summary__pizza {
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+  }
+  
+  h5 {
+    font-size: 22px;
+    font-weight: 300;
+    margin: 0;
+    position: relative;
+  }
+  
+  .pizza-summary__price {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    color: rgba(0, 0, 0, 0.5);
+  }
+  
+  .pizza-summary__topping {
+    position: relative;
+    margin-left: 10px;
+  }
+  
+  .fa {
+    margin-right: 10px;
+    font-size: 14px;
+    margin-top: 10px;
+  }
+  
+  .order-summary__total-price {
+    font-size: 20px;
+    text-align: right;
+  }
+  
+  .order-date {
+    font-size: 16px;
+    font-weight: 300;
+  }
+  
+  .card-body {
+    font-weight: 300;
+  }
+  
+  .no-orders {
+    margin-top: 50px;
+    text-align: center;
+  }
+  
+  .btn-link {
+    font-size: 20px;
+    color: orange;
+  }
+  

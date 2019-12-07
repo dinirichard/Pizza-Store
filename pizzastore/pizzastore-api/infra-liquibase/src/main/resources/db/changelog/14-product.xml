@@ -1,0 +1,36 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd"
+                   logicalFilePath="14-product.xml">
+
+  <changeSet id="product_table" author="indrek.maask@nortal.com">
+    <createTable tableName="product">
+      <column name="id" type="bigint" autoIncrement="true">
+        <constraints primaryKey="true"/>
+      </column>
+      <column name="name" type="VARCHAR(255)">
+        <constraints nullable="false"/>
+      </column>
+      <column name="category_code" type="VARCHAR(255)">
+        <constraints nullable="false" foreignKeyName="product_category_fkey" references="product_category(code)"/>
+      </column>
+      <column name="price" type="numeric(19, 2)">
+        <constraints nullable="false"/>
+      </column>
+    </createTable>
+  </changeSet>
+
+  <changeSet id="add_initial_products" author="indrek.maask@nortal.com">
+    <sql>
+      INSERT INTO product(id, name, category_code, price) VALUES (1, 'Small', 'PIZZA_BASE', '5.00');
+      INSERT INTO product(id, name, category_code, price) VALUES (2, 'Medium', 'PIZZA_BASE', '7.00');
+      INSERT INTO product(id, name, category_code, price) VALUES (3, 'Large', 'PIZZA_BASE', '9.00');
+
+      INSERT INTO product(id, name, category_code, price) VALUES (4, 'Tomato', 'PIZZA_TOPPING', '1.00');
+      INSERT INTO product(id, name, category_code, price) VALUES (5, 'Pepperoni', 'PIZZA_TOPPING', '1.10');
+      INSERT INTO product(id, name, category_code, price) VALUES (6, 'Mushroom', 'PIZZA_TOPPING', '1.20');
+    </sql>
+  </changeSet>
+
+</databaseChangeLog>

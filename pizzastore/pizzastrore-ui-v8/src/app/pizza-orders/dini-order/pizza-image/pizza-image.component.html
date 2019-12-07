@@ -1,0 +1,22 @@
+<div *ngFor="let pizza of pizzas.value; let i = index;" [class.pizza-image__inactive]="selectedPizza !== i">
+    <div class="col-lg-4">
+        <img class="pizza-image" src="../../../../assets/pizza.png" alt="">
+        <div *ngFor="let topping of pizza.toppings;">
+            <div
+                class="slide-in-top pizza-image__topping pizza-image__topping-{{ toppingNameFn(topping).toLowerCase() }}">
+            </div>
+            <div
+                class="slide-in-top pizza-image__topping pizza-image__topping-{{ toppingNameFn(topping).toLowerCase() }}">
+            </div>
+            <div
+                class="slide-in-top pizza-image__topping pizza-image__topping-{{ toppingNameFn(topping).toLowerCase() }}">
+            </div>
+            <div
+                class="slide-in-top pizza-image__topping pizza-image__topping-{{ toppingNameFn(topping).toLowerCase() }}">
+            </div>
+            <div
+                class="slide-in-top pizza-image__topping pizza-image__topping-{{ toppingNameFn(topping).toLowerCase() }}">
+            </div>
+        </div>
+    </div>
+</div>

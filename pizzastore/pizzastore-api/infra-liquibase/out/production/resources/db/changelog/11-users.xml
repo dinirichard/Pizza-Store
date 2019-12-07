@@ -1,0 +1,32 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd"
+                   logicalFilePath="11-users.xml">
+
+  <changeSet id="users_table" author="indrek.maask@nortal.com">
+    <createTable tableName="users">
+      <column name="id" type="bigint" autoIncrement="true">
+        <constraints primaryKey="true"/>
+      </column>
+      <column name="username" type="VARCHAR(255)">
+        <constraints nullable="false"/>
+      </column>
+      <column name="password" type="VARCHAR(255)">
+        <constraints nullable="false"/>
+      </column>
+    </createTable>
+  </changeSet>
+
+  <changeSet id="add_admin_user" author="indrek.maask@nortal.com">
+    <insert tableName="users">
+      <column name="username" value="admin"/>
+      <column name="password" value="admin"/>
+    </insert>
+    <insert tableName="users">
+      <column name="username" value="customer"/>
+      <column name="password" value="customer"/>
+    </insert>
+  </changeSet>
+
+</databaseChangeLog>

@@ -1,0 +1,189 @@
+.add-pizza {
+  background: none;
+  cursor: pointer;
+  color: #212529;
+  border: none;
+  padding: 10px 15px;
+  font-size: 20px;
+  outline: none;
+}
+
+.add-pizza:hover {
+  text-decoration: underline;
+}
+
+.order-header {
+  font-size: 16px;
+  padding: 10px 15px;
+  color: rgba(0, 0, 0, 0.6);
+  position: relative;
+  cursor: pointer;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.example-radio-group {
+    display: flex;
+    flex-direction: column;
+    margin: 15px 0;
+  }
+
+  .container {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 18px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  
+  .example-radio-button {
+    margin: 5px;
+  }
+
+  .pizza-toppings {
+    margin: 10px 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  .pizza-topping {
+    margin: 20px 0 0;
+    background: #eee;
+    border-radius: 20px;
+    padding: 10px 15px 10px 63px;
+    cursor: pointer;
+    overflow: hidden;
+    position: relative;
+    flex-basis: 24%;
+    flex-shrink: 1;
+    user-select: none;
+  }
+  
+  .pizza-topping:nth-child(4n) {
+    margin-right: 0;
+  }
+  
+  input {
+    clip: rect(0 0 0 0);
+    position: absolute;
+  }
+  
+  .pizza-topping-active {
+    background: orange;
+    color: #fff;
+    font-weight: 500;
+  }
+  
+  .pizza-topping__icon {
+    background: #e6e6e6 no-repeat center center;
+    background-size: 35px;
+    width: 40px;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+  }
+  
+  .pizza-topping__icon-mushroom {
+    background-image: url(../../../assets/toppings/mushroom.png);
+  }
+  
+  .pizza-topping__icon-pepperoni {
+    background-image: url(../../../assets/toppings/pepperoni.png);
+  }
+  
+  .pizza-topping__icon-tomato {
+    background-image: url(../../../assets/toppings/tomato.png);
+  }
+  
+  /*TODO Add CSS for bacon topping icon*/
+  .pizza-topping__icon-bacon {
+    background-image: url(../../../assets/toppings/bacon.png);
+  }
+
+  ////////////////////////////////////
+  // FORMS
+  .order-form {
+    display: flex;
+  }
+  
+  .danger {
+    color: red;
+  }
+  
+  .form-input {
+    margin: 0 30px 20px 0;
+    flex-grow: 1;
+  }
+
+// DETAILS
+.submit {
+  float: right;
+}
+
+.order-summary__pizza {
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+h5 {
+  font-size: 22px;
+  font-weight: 300;
+  margin: 0;
+  position: relative;
+}
+
+.pizza-summary__price {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.pizza-summary__topping {
+  position: relative;
+  margin-left: 10px;
+}
+
+.fa {
+  margin-right: 10px;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+.order-summary__total-price {
+  font-size: 20px;
+  text-align: right;
+}
+
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.example-full-width {
+  width: 100%;
+}
+
+td {
+  padding-right: 8px;
+}
+
+mat-form-field.mat-form-field-infix {
+    padding-top: 10px;
+    padding-bottom: 17px;
+}

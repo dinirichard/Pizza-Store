@@ -1,0 +1,73 @@
+<div class="container pizza-store-font">
+    <div class="col-12 mt-5">
+        <h2>Orders:</h2>
+        <div class="accordion mt-4" id="orders">
+            <div *ngIf="orders?.length === 0; else ordersTemplate" class="no-orders">
+                <h5>No orders found</h5>
+            </div>
+            <ng-template #ordersTemplate>
+                <div class="card" *ngFor="let order of orders; let i = index">
+                    <div class="card-header d-flex" id="{{i}}">
+                        <h5 class="mb-0">
+                            <span class="order-date">{{order.created | date: 'dd.MM.yyyy HH:mm'}}</span>
+                            <button class="btn btn-link" type="button" data-toggle="collapse"
+                                [attr.data-target]="'#order' + i" [attr.aria-controls]="'order' + i"
+                                aria-expanded="true">
+                                {{order.customer?.name}}
+                            </button>
+                        </h5>
+
+                        <button *ngIf="isAdmin()" type="button" class="btn btn-danger ml-auto"
+                            (click)="cancelOrder(order.id)">
+                            Cancel order
+                        </button>
+                    </div>
+
+                    <div [attr.id]="'order' + i" class="collapse" [attr.aria-labelledby]="i" data-parent="#orders">
+                        <div class="card-body">
+                            <h4 class="mb-4">Customer</h4>
+                            <div class="row">
+                                <div class="col-2">Name:</div>
+                                <div class="col-5">{{order.customer?.name}}</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-2">Email:</div>
+                                <div class="col-5">{{order.customer?.email}}</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-2">Phone:</div>
+                                <div class="col-5">{{order.customer?.phone}}</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-2">Address:</div>
+                                <div class="col-5">{{order.customer?.address}}</div>
+                            </div>
+                            <h4 class="mb-4 mt-5">Order summary</h4>
+                            <div *ngFor="let pizza of order.pizzas" class="order-summary__pizza">
+                                <div>
+                                    <h5>
+                                        {{pizza.base?.name}} Pizza
+                                        <span
+                                            class="pizza-summary__price">{{ pizza.base?.price | currency:'EUR':'symbol' }}</span>
+                                    </h5>
+
+                                    <div class="pizza-summary__toppings">
+                                        <div *ngFor="let topping of pizza.toppings" class="pizza-summary__topping">
+                                            <i class="fa fa-plus"></i>
+                                            {{topping.name}}
+                                            <span
+                                                class="pizza-summary__price">{{ topping.price | currency:'EUR':'symbol' }}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="order-summary__total-price">
+                                Total: {{ order.totalPrice | currency:'EUR':'symbol' }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </ng-template>
+        </div>
+    </div>
+</div>

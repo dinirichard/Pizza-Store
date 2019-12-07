@@ -1,0 +1,24 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd"
+                   logicalFilePath="13-product_category.xml">
+
+  <changeSet id="product_category_table" author="indrek.maask@nortal.com">
+    <createTable tableName="product_category">
+      <column name="code" type="VARCHAR(255)">
+        <constraints primaryKey="true"/>
+      </column>
+    </createTable>
+  </changeSet>
+
+  <changeSet id="add_default_categories" author="indrek.maask@nortal.com">
+    <insert tableName="product_category">
+      <column name="code" value="PIZZA_BASE"/>
+    </insert>
+    <insert tableName="product_category">
+      <column name="code" value="PIZZA_TOPPING"/>
+    </insert>
+  </changeSet>
+
+</databaseChangeLog>

@@ -1,0 +1,9 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:4444/pizzastore
+      username: pizzastore
+      password: pizzastore
+  properties:
+    hibernate:
+      temp:
+        use_jdbc_metadata_defaults: false

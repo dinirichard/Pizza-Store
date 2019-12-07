@@ -1,0 +1,100 @@
+<form (ngSubmit)="submitOrder()" [formGroup]="pizzaOrderForm" class="pizza-store-font">
+    <div class="row mt-5">
+        <app-pizza-image [pizzas]="getPizzasFormArray()" [selectedPizza]="selectedPizza"
+            [toppingNameFn]="getToppingLabel">
+        </app-pizza-image>
+        <div class="col-lg-8 pizza-store-font">
+            <h1 class="mb-4">New Order</h1>
+            <ng-container *ngIf="pizzaCreating; else orderSummary">
+                <div class="buttons are-medium">
+                    <h4>
+                        Your pizzas
+                        <button type="button" class="add-pizza float-right" (click)="addPizza()">
+                            <i class="fa fa-plus"></i>
+                            Add pizza
+                        </button>
+                    </h4>
+                </div>
+                <mat-accordion class="example-headers-align" formArrayName="pizzas">
+                    <mat-expansion-panel *ngFor="let pizza of pizzasControls; let i = index;" [expanded]="checkStep(i)"
+                        [formGroupName]="i" (opened)="setStep(i)" hideToggle>
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>
+                                <mat-icon>
+                                    keyboard_arrow_down
+                                </mat-icon>
+                                Pizza {{i+1}}
+                            </mat-panel-title>
+                        </mat-expansion-panel-header>
+
+
+                        <label id="example-radio-group-label">Select Size:</label>
+                        <mat-radio-group aria-labelledby="example-radio-group-label" formControlName="base"
+                            class="example-radio-group">
+                            <mat-radio-button class="example-radio-button" *ngFor="let based of pizzaBases"
+                                [value]="based.id">
+                                {{based.name}}
+                            </mat-radio-button>
+                        </mat-radio-group>
+
+
+                        <h5 class="mt-3">Select toppings: </h5>
+                        <div class="pizza-toppings">
+                            <mat-selection-list class="pizza-toppings" formControlName="toppings" #shoes>
+                                <mat-list-option *ngFor="let topping of toppings; let j = index;" class="pizza-topping"
+                                    [value]="topping.id">
+                                    <span class="pizza-topping__icon 
+                            pizza-topping__icon-{{ topping.name.toLowerCase() }}">
+                                    </span>
+                                    {{ topping.name }}
+                                </mat-list-option>
+                            </mat-selection-list>
+                        </div>
+
+                    </mat-expansion-panel>
+                </mat-accordion>
+                <button class="btn btn-lg btn-primary btn-block mt-5" (click)="pizzaCreatingTest()">
+                    Create order
+                </button>
+            </ng-container>
+
+            <ng-template #orderSummary>
+                <!-- <div formGroupName="customerControls"> -->
+                <h4>Your details</h4>
+
+                <app-customer-details [customerControl]="customerControl" [submitted]="submitted" [matcher]="matcher">
+                </app-customer-details>
+
+                <h4 class="mb-4 mt-4">Order summary</h4>
+                <div *ngFor="let pizza of progPizza" class="order-summary__pizza">
+                    <div *ngIf="pizza.base">
+                        <h5>
+                            {{ getBaseLabel(pizza.base) }} Pizza
+                            <span
+                                class="pizza-summary__price">{{ getBasePrice(pizza.base) | currency:'EUR':'symbol' }}</span>
+                        </h5>
+
+                        <div class="pizza-summary__toppings">
+                            <div *ngFor="let topping of pizza.toppings" class="pizza-summary__topping">
+                                <i class="fa fa-plus"></i>
+                                {{ getToppingLabel(topping) }}
+                                <span
+                                    class="pizza-summary__price">{{ getToppingPrice(topping) | currency:'EUR':'symbol' }}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="order-summary__total-price">
+                    Total: {{ total | currency:'EUR':'symbol' }}
+                </div>
+
+                <div class="mt-3">
+                    <button class="btn btn-lg btn-primary" type="submit" (click)="pizzaCreating = true">Back</button>
+                    <button class="btn btn-lg btn-primary submit" type="submit">Place order</button>
+                </div>
+
+            </ng-template>
+
+        </div>
+    </div>
+</form>
